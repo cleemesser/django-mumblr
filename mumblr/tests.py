@@ -292,9 +292,12 @@ class MumblrTest(TestCase):
     def test_login_requred(self):
         """Ensure that a login is required for restricted pages.
         """
-        restricted_pages = ['/admin/', '/admin/add/text/'] 
-        restricted_pages.append('/admin/edit/%s/' % self.text_entry.id)
-        restricted_pages.append('/admin/delete/')
+        restricted_pages = [
+            '/admin/',
+            '/admin/add/text/',
+            '/admin/edit/%s/' % self.text_entry.id,
+            '/admin/delete/',
+        ]
 
         # Check in turn that each of the restricted pages may not be accessed
         for url in restricted_pages:

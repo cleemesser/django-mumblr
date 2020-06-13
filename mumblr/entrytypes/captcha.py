@@ -20,11 +20,7 @@ def displayhtml(public_key, use_ssl = False, error = None):
     if error:
         error_param = '&error=%s' % error
 
-    if use_ssl:
-        server = API_SSL_SERVER
-    else:
-        server = API_SERVER
-
+    server = API_SSL_SERVER if use_ssl else API_SERVER
     return """<script type="text/javascript" src="%(ApiServer)s/challenge?k=%(PublicKey)s%(ErrorParam)s"></script>
 
 <noscript>

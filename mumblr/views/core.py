@@ -106,9 +106,11 @@ def entry_detail(request, date, slug):
 
     # Check for comment expiry
     comments_expired = False
-    if entry.comments_expiry_date:
-        if entry.comments_expiry_date < datetime.now():
-            comments_expired = True
+    if (
+        entry.comments_expiry_date
+        and entry.comments_expiry_date < datetime.now()
+    ):
+        comments_expired = True
 
     context = {
         'entry': entry,

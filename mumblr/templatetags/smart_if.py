@@ -352,11 +352,9 @@ class SmartIfNode(template.Node):
         return "<Smart If node>"
 
     def __iter__(self):
-        for node in self.nodelist_true:
-            yield node
+        yield from self.nodelist_true
         if self.nodelist_false:
-            for node in self.nodelist_false:
-                yield node
+            yield from self.nodelist_false
 
     def get_nodes_by_type(self, nodetype):
         nodes = []
